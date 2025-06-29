@@ -1,7 +1,110 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AG-013 Robotics Portfolio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f9fb;
+      color: #333;
+    }
+    header {
+      background-color: #1f2d3d;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    main {
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    h2 {
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
+    }
+    .project {
+      margin-bottom: 60px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .project-content {
+      padding: 20px;
+    }
+    .project img, .project video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .project-title {
+      font-size: 1.5em;
+      margin: 0 0 10px;
+    }
+    .project-description {
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+  <header>
+    <h1>AG-013 Robotics Portfolio</h1>
+    <p>Showcasing my robotics and engineering projects</p>
+  </header>
+
+  <main>
+    <!-- Project Example 1 -->
+    <div class="project">
+      <img src="images/spot_robotic_arm.jpg" alt="Robotic Arm with Spot" />
+      <div class="project-content">
+        <h2 class="project-title">Assistive Robotics — Spot Integration</h2>
+        <p class="project-description">
+          Developed a 3-DOF robotic arm integrated with Boston Dynamics Spot for Guide Dogs Australia. Focused on lightweight tendon-driven design, workspace optimization, and human-robot interaction testing. Conducted HIL testing for safety and reliability.
+        </p>
+        <video controls>
+          <source src="videos/spot_demo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+    <!-- Project Example 2 -->
+    <div class="project">
+      <img src="images/autonomous_racecar.jpg" alt="Autonomous Race Car" />
+      <div class="project-content">
+        <h2 class="project-title">UTS Motorsports Autonomous Race Car</h2>
+        <p class="project-description">
+          Led the mechanical systems team to convert a race car for autonomous driving. Designed a dual-mode pedal box and Ackermann steering mechanism. Integrated with the full autonomous software stack to achieve sub-3s system latency.
+        </p>
+        <video controls>
+          <source src="videos/racecar_autonomous.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+    <!-- Project Example 3 -->
+    <div class="project">
+      <img src="images/dobot_arm.jpg" alt="Vision-based Dobot Arm" />
+      <div class="project-content">
+        <h2 class="project-title">Vision-Based Manipulation with Dobot Arm</h2>
+        <p class="project-description">
+          Programmed a Dobot Arm for image-guided pick-and-place using RGBD sensors, ArUco tags, and OpenCV visual servoing. Achieved accurate eye-to-hand calibration for real-time visual feedback.
+        </p>
+        <video controls>
+          <source src="videos/dobot_pick_place.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+    <!-- Add more project sections as needed -->
+
+  </main>
 </body>
 </html>
