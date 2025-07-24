@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adesh Grewal - Portfolio</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fade-in 0.3s ease-out;
+    }
+  </style>
+
+  <script>
+    function showToast(message) {
+      const toast = document.createElement('div');
+      toast.textContent = message;
+      toast.className = 'fixed top-5 right-5 bg-green-500 text-white px-4 py-2 rounded shadow-lg animate-fade-in z-50';
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 3000);
+    }
+
+    function setupDownloadToast() {
+      const button = document.querySelector('[download]');
+      if (button) {
+        button.addEventListener('click', () => {
+          showToast('Resume is downloading...');
+        });
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', setupDownloadToast);
+  </script>
+</head>
+
+<body class="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 text-white font-sans min-h-screen">
+
+  <!-- Navigation --> <!-- Header -->
+  <nav class="fixed w-full bg-gray-950 bg-opacity-90 shadow z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="text-xl font-bold text-white">Adesh's Portfolio</div>
+      <div class="space-x-6 hidden md:flex">
+        <a href="#home" class="hover:text-yellow-400 font-medium">Home</a>
+        <a href="#summary" class="hover:text-yellow-400 font-medium">Summary</a>
+        <a href="#projects" class="hover:text-yellow-400 font-medium">Projects</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="pt-28 pb-10">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg px-10 md:px-16 py-20 md:py-24 grid grid-cols-1 md:grid-cols-2 gap-16 items-center relative">
+        
+        <!-- Top Badge and CV -->
+        <div class="absolute top-6 left-6 flex items-center space-x-2">
+          <span class="relative flex h-3 w-3">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+          </span>
+          <!-- <span class="text-green-400 font-medium">Open to Work</span> -->
+        </div>
+
+        <div class="absolute top-6 right-6">
+          <a href="files/adesh_resume_ref.pdf" download class="bg-yellow-400 text-black font-bold px-6 py-2 rounded-full shadow hover:bg-yellow-300 hover:scale-105 transition-transform duration-300">Download CV</a>
+        </div>
+
+        <!-- Left Side: Contact Info -->
+        <div class="space-y-4">
+          <p class="text-xl mb-2"><strong> Reach out to me via Email:</strong> adeshgrewalwk@gmail.com</p>
+          <p class="text-xl mb-2"><strong> or Phone:</strong> +61 405605636</p>
+          <p class="text-xl mb-2"><strong>Connect with me on LinkedIn:</strong> https://www.linkedin.com/in/grewaladesh13/</p>
+          <!-- <p class="text-xl mb-2"><strong>Location:</strong> Sydney, Australia</p> -->
+        </div>
+                <div class="space-y-4"></div>
+          <p class="text-xl flex items-center gap-2 mb-2">
+            <strong>
+              <span class="inline-block align-middle">
+                <!-- Email Icon -->
+                <svg xmlns="https://icon-library.com/icon/email-icon-flat-14.html.html" class="h-5 w-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12l-4-4-4 4m8 0v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6m16-2a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2h12a2 2 0 002-2v-6z" />
+                </svg>
+              </span>
+              Reach out via Email:
+            </strong>
+            <a href="mailto:adeshgrewalwk@gmail.com" class="text-yellow-400 hover:underline">adeshgrewalwk@gmail.com</a>
+          </p>
+          <p class="text-xl flex items-center gap-2 mb-2">
+            <strong>
+              <span class="inline-block align-middle">
+                <!-- Phone Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm0 14a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5a2 2 0 00-2 2v2zm14-14a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5a2 2 0 012-2h2zm0 14a2 2 0 002-2v-2a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2h2z" />
+                </svg>
+              </span>
+              Phone:
+            </strong>
+            <a href="tel:+61405605636" class="text-yellow-400 hover:underline">+61 405605636</a>
+          </p>
+          <p class="text-xl flex items-center gap-2 mb-2">
+            <strong>
+              <span class="inline-block align-middle">
+                <!-- LinkedIn Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.026-3.063-1.867-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.381-1.563 2.845-1.563 3.043 0 3.604 2.004 3.604 4.609v5.587z"/>
+                </svg>
+              </span>
+              LinkedIn:
+            </strong>
+            <a href="https://www.linkedin.com/in/grewaladesh13/" target="_blank" rel="noopener noreferrer" class="text-yellow-400 hover:underline">grewaladesh13</a>
+          </p>
+        </div>
+          <!-- <p class="text-xl mb-2"><strong>Location:</strong> Sydney, Australia</p> -->
+        </div>
+
+
+        <!-- Right Side: Name & Title -->
+        <div class="text-center md:text-right">
+          <h1 class="text-5xl md:text-6xl font-bold mb-4">Adesh Grewal</h1>
+          <p class="text-2xl text-yellow-400">Robotics Engineer</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Summary Section -->
+  <section id="summary" class="py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="bg-white/10 backdrop-blur-md rounded-xl shadow p-8 text-center">
+        <h2 class="text-3xl font-bold mb-4">Summary</h2>
+        <p class="text-gray-300 text-lg">
+          I'm a robotics enthusiast with experience in system design, perception, and controls. I love building systems that work in the real world, from autonomous vehicles to robotic arms.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-10">Projects</h2>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Project One -->
+        <div class="bg-white/10 backdrop-blur-md rounded-xl shadow p-6">
+          <h3 class="text-xl font-semibold mb-2">Project One</h3>
+          <p class="text-gray-300 mb-4">A robotic arm designed to work with autonomous systems in dynamic environments.</p>
+          <video controls class="rounded w-full" loading="lazy">
+            <source src="videos/project1/project1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <!-- Project Two -->
+        <div class="bg-white/10 backdrop-blur-md rounded-xl shadow p-6">
+          <h3 class="text-xl font-semibold mb-2">Project Two</h3>
+          <p class="text-gray-300 mb-4">Autonomous ground robot with vision and path planning capabilities.</p>
+          <video controls class="rounded w-full">
+            <source src="videos/project2/project2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+                <!-- Project One -->
+        <div class="bg-white/10 backdrop-blur-md rounded-xl shadow p-6">
+          <h3 class="text-xl font-semibold mb-2">Project One</h3>
+          <p class="text-gray-300 mb-4">A robotic arm designed to work with autonomous systems in dynamic environments.</p>
+          <video controls class="rounded w-full" loading="lazy">
+            <source src="videos/project1/project1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <!-- Project One -->
+        <div class="bg-white/10 backdrop-blur-md rounded-xl shadow p-6">
+          <h3 class="text-xl font-semibold mb-2">Project One</h3>
+          <p class="text-gray-300 mb-4">A robotic arm designed to work with autonomous systems in dynamic environments.</p>
+          <video controls class="rounded w-full" loading="lazy">
+            <source src="videos/project1/project1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 text-sm text-gray-400">
+    &copy; 2025 Adesh Grewal. All rights reserved.
+  </footer>
+
+</body>
+</html>
