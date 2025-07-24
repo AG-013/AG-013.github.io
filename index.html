@@ -2,242 +2,158 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Adesh Grewal Engineering Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adesh Grewal - Portfolio</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f7f9fb;
-      color: #333;
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    header {
-      background-color: #1f2d3d;
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-    }
-    main {
-      padding: 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-    h2 {
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 5px;
-    }
-    .project {
-      margin-bottom: 60px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      overflow: hidden;
-      background: white;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .project-content {
-      padding: 20px;
-    }
-    .project img, .project video {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .project-title {
-      font-size: 1.5em;
-      margin: 0 0 10px;
-    }
-    .project-description {
-      margin-bottom: 15px;
+    .animate-fade-in {
+      animation: fade-in 0.3s ease-out;
     }
   </style>
+
+  <script>
+    function showToast(message) {
+      const toast = document.createElement('div');
+      toast.textContent = message;
+      toast.className = 'fixed top-5 right-5 bg-green-500 text-white px-4 py-2 rounded shadow-lg animate-fade-in z-50';
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 3000);
+    }
+
+    function setupDownloadToast() {
+      const button = document.querySelector('[download]');
+      if (button) {
+        button.addEventListener('click', () => {
+          showToast('Resume is downloading...');
+        });
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', setupDownloadToast);
+  </script>
 </head>
-<body>
-  <header>
-    <h1>Adesh Grewal Engineering Portfolio</h1>
-    <p>Hi everyone, I am Adesh an enthusiatic roboitcs engineer who loves 
-        tinkering with technology and have always been intrigued by mechanisms and 
-        the working of things wether it be a toy in my childhood or a decision making algorithm.
-        Here I am Showcasing my robotics and engineering projects that i have done over the years</p>
-  </header>
 
-  <main>
-    
-    <!-- Project 1 -->
-<div class="project">
-  <img src="images/spot_robotic_arm.jpg" alt="Robotic Arm with Spot" />
-  <div class="project-content">
-    <h2 class="project-title">Assistive Robotics — Spot Integration</h2>
-    <p class="project-description">
-      Developed a 3-DOF robotic arm integrated with Boston Dynamics Spot robot for
-       assistive guidance in collaboration with Guide Dogs Australia Association.
-        Used capstan-tendon actuation for lightweight, compliant human-robot interaction. 
-        Led full system design including SolidWorks + FEA, workspace optimization in MATLAB, 
-        URDF modeling, and PID tuning in ROS2.
-         Conducted HIL testing validating reachability, safety, and back-drivability.
-    </p>
-    <video controls>
-      <source src="videos/spot_demo.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-</div>
+<body class="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 text-white font-sans min-h-screen">
 
-<!-- Project 2 -->
-<div class="project">
-  <img src="images/autonomous_racecar.jpg" alt="Autonomous Race Car" />
-  <div class="project-content">
-    <h2 class="project-title">UTS Motorsports Autonomous Race Car</h2>
-    <p class="project-description">
-      Led an 8-member mechanical team to convert a race car for autonomous operation. 
-      Designed a dual-mode pedal box and Ackermann steering mechanism, achieving sub-3s system latency.
-     Closely collaborated with electrical and software teams for integration of the full autonomous stack.
-    </p>
-    <video controls>
-      <source src="videos/racecar_autonomous.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-</div>
+  <!-- Navigation -->
+  <nav class="fixed w-full bg-gray-950 bg-opacity-90 shadow z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="text-xl font-bold text-white">My Portfolio</div>
+      <div class="space-x-6 hidden md:flex">
+        <a href="#home" class="hover:text-yellow-400 font-medium">Home</a>
+        <a href="#summary" class="hover:text-yellow-400 font-medium">Summary</a>
+        <a href="#projects" class="hover:text-yellow-400 font-medium">Projects</a>
+      </div>
+    </div>
+  </nav>
 
-<!-- Project 3 -->
-<div class="project">
-  <img src="images/robot_arm_vision.jpg" alt="Vision-based Robot Arm" />
-  <div class="project-content">
-    <h2 class="project-title">Vision-Based Manipulation with Robot Arm</h2>
-    <p class="project-description">
-      Programmed a robot arm for image-guided pick-and-place tasks using eye-to-hand calibration.
-       Integrated RGBD sensors, tag detection, and OpenCV-based visual servoing to enable real-time feedback and precision grasping.
-    </p>
-    <video controls>
-      <source src="videos/robot_arm_vision.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-</div>
+  <!-- Hero Section -->
+  <section id="home" class="pt-28 pb-10">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg px-10 md:px-16 py-20 md:py-24 grid grid-cols-1 md:grid-cols-2 gap-16 items-center relative">
+        
+        <!-- Top Badge and CV -->
+        <div class="absolute top-6 left-6 flex items-center space-x-2">
+          <span class="relative flex h-3 w-3">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+          </span>
+          <span class="text-green-400 font-medium">Open to Work</span>
+        </div>
 
-<!-- Project 4 -->
-<div class="project">
-  <img src="images/space_robotics.jpg" alt="Space Robotics Navigation" />
-  <div class="project-content">
-    <h2 class="project-title">Space Robotics — Autonomous Navigation</h2>
-    <p class="project-description">
-      Implemented A*, Dijkstra, PRM, and frontier exploration algorithms for planetary terrain simulations. 
-      Integrated YOLOv11 with LIDAR and RGBD data for perception, fusing LIDAR, IMU, and camera data
-       to achieve robust autonomous navigation and object detection in Gazebo using ROS1 and Python.
-    </p>
-    <video controls>
-      <source src="videos/space_navigation.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-</div>
+        <div class="absolute top-6 right-6">
+          <a href="files/adesh_resume_ref.pdf" download class="bg-yellow-400 text-black font-bold px-6 py-2 rounded-full shadow hover:bg-yellow-300 hover:scale-105 transition-transform duration-300">Download CV</a>
+        </div>
 
-<!-- Project 5 -->
-<div class="project">
-  <img src="images/multi_robot.jpg" alt="Multi-robot collaboration" />
-  <div class="project-content">
-    <h2 class="project-title">Multi-Robot Collaboration and Land Surveying</h2>
-    <p class="project-description">
-      Developed C++ ROS2 control stacks for quadcopter, Ackermann, and skid-steer robots. 
-      Implemented threading for efficient multi-agent collaboration and resource management in distributed robotic systems.
-    </p>
-    <video controls>
-      <source src="videos/multi_robot_survey.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-</div>
+        <!-- Left Side: Contact Info -->
+        <div>
+          <p class="text-xl mb-2"><strong>Email:</strong> john.doe@gmail.com</p>
+          <p class="text-xl mb-2"><strong>Phone:</strong> +1 234-567-8901</p>
+          <p class="text-xl mb-2"><strong>LinkedIn:</strong> linkedin.com/in/johndoe</p>
+          <p class="text-xl mb-2"><strong>Location:</strong> New York, USA</p>
+        </div>
 
-<!-- Project 6 -->
-<div class="project">
-  <img src="images/acoustic_materials.jpg" alt="Acoustic Materials Research" />
-  <div class="project-content">
-    <h2 class="project-title">Acoustic Materials Research</h2>
-    <p class="project-description">
-      Conducted laser vibrometer experiments on damping materials, performing mode shape analysis in Sim Centre. Investigated structural response and tested materials for acoustic insulation at UTS Botany Bay.
-    </p>
-    <video controls>
-      <source src="videos/acoustic_materials.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-</div>
+        <!-- Right Side: Name & Title -->
+        <div class="text-center md:text-right">
+          <h1 class="text-5xl md:text-6xl font-bold mb-4">Adesh Grewal</h1>
+          <p class="text-2xl text-yellow-400">Robotics Engineer</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- Project 7 -->
-<div class="project">
-  <img src="images/shot_blasting.jpg" alt="Shot Blasting Optimization" />
-  <div class="project-content">
-    <h2 class="project-title">Shot Blasting Process Optimization</h2>
-    <p class="project-description">
-      Improved shot-blasting efficiency at Mahindra & Mahindra by analyzing consumable usage and operational parameters. Contributed to reducing process cost and enhancing surface finish consistency.
-    </p>
-    <video controls>
-      <source src="videos/shot_blasting.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-</div>
+  <!-- Summary Section -->
+  <section id="summary" class="py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="bg-white/10 backdrop-blur-md rounded-xl shadow p-8 text-center">
+        <h2 class="text-3xl font-bold mb-4">Summary</h2>
+        <p class="text-gray-300 text-lg">
+          I'm a robotics enthusiast with experience in system design, perception, and controls. I love building systems that work in the real world, from autonomous vehicles to robotic arms.
+        </p>
+      </div>
+    </div>
+  </section>
 
-<!-- Project 8 -->
-<div class="project">
-  <img src="images/rf_sensors.jpg" alt="3D-Printed RF Sensors" />
-  <div class="project-content">
-    <h2 class="project-title">3D-Printed RF Sensors</h2>
-    <p class="project-description">
-      Designed 3D-printed RF sensors using recycled plastic blends during an internship at NTU & Panjab University. Investigated dielectric property variations and their effects on antenna gain. Published results in Springer Journal (<a href="https://link.springer.com/article/10.1007/s12046-022-01992-2" target="_blank">link</a>).
-    </p>
-    <video controls>
-      <source src="videos/rf_sensors.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-</div>
+  <!-- Projects Section -->
+  <section id="projects" class="py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-10">Projects</h2>
 
-<!-- Project 9 -->
-<div class="project">
-  <img src="images/delta_uav.jpg" alt="Delta-Wing UAV" />
-  <div class="project-content">
-    <h2 class="project-title">Autonomous Delta-Wing UAV</h2>
-    <p class="project-description">
-      Designed and fabricated an autonomous fixed delta-wing UAV for aerial surveillance. Integrated GPS waypoint tracking and gyro-stabilized flight control for robust autonomous missions.
-    </p>
-    <video controls>
-      <source src="videos/delta_uav.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-</div>
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Project One -->
+        <div class="bg-white/10 backdrop-blur-md rounded-xl shadow p-6">
+          <h3 class="text-xl font-semibold mb-2">Project One</h3>
+          <p class="text-gray-300 mb-4">A robotic arm designed to work with autonomous systems in dynamic environments.</p>
+          <video controls class="rounded w-full" loading="lazy">
+            <source src="videos/project1/project1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
 
-<!-- Project 10 -->
-<div class="project">
-  <img src="images/nekc_kart.jpg" alt="Electric Kart" />
-  <div class="project-content">
-    <h2 class="project-title">National Electric Kart Championship (NEKC 3.0)</h2>
-    <p class="project-description">
-      Led the mechanical design for the winning team, focusing on ergonomics and highly responsive steering systems. Successfully competed and secured top national rank.
-    </p>
-    <video controls>
-      <source src="videos/nekc_kart.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-</div>
+        <!-- Project Two -->
+        <div class="bg-white/10 backdrop-blur-md rounded-xl shadow p-6">
+          <h3 class="text-xl font-semibold mb-2">Project Two</h3>
+          <p class="text-gray-300 mb-4">Autonomous ground robot with vision and path planning capabilities.</p>
+          <video controls class="rounded w-full">
+            <source src="videos/project2/project2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
 
-<!-- Project 11 -->
-<div class="project">
-  <img src="images/airc_racing.jpg" alt="Auto India Racing Car" />
-  <div class="project-content">
-    <h2 class="project-title">Auto India Racing Championship (AIRC)</h2>
-    <p class="project-description">
-      Contributed to chassis design and steering optimization for the race car. Team placed 16th nationally, demonstrating improvements in handling and structural integrity.
-    </p>
-    <video controls>
-      <source src="videos/airc_racing.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-</div>
+                <!-- Project One -->
+        <div class="bg-white/10 backdrop-blur-md rounded-xl shadow p-6">
+          <h3 class="text-xl font-semibold mb-2">Project One</h3>
+          <p class="text-gray-300 mb-4">A robotic arm designed to work with autonomous systems in dynamic environments.</p>
+          <video controls class="rounded w-full" loading="lazy">
+            <source src="videos/project1/project1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <!-- Project One -->
+        <div class="bg-white/10 backdrop-blur-md rounded-xl shadow p-6">
+          <h3 class="text-xl font-semibold mb-2">Project One</h3>
+          <p class="text-gray-300 mb-4">A robotic arm designed to work with autonomous systems in dynamic environments.</p>
+          <video controls class="rounded w-full" loading="lazy">
+            <source src="videos/project1/project1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
 
-  </main>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 text-sm text-gray-400">
+    &copy; 2025 Adesh Grewal. All rights reserved.
+  </footer>
+
 </body>
 </html>
