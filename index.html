@@ -295,49 +295,102 @@
           - Projects
         -->
 
-        <section class="Projects">
+        <section class="projects">
 
-          <h3 class="h3 Projects-title">Projects</h3>
+          <h3 class="h3 projects-title">Projects</h3>
 
-          <ul class="Projects-list has-scrollbar">
-
-            <li class="Projects-item">
-              <a href="#">
-                <img src="./assets/images/logo-1-color.png" alt="client logo">
-              </a>
+          <ul class="projects-list" style="display: flex; flex-wrap: wrap; gap: 24px; padding: 0;">
+            <!-- Example Project 1 -->
+            <li class="projects-item" style="list-style: none; width: 200px; text-align: center;">
+              <button class="project-btn" style="background: none; border: none; padding: 0; cursor: pointer;" onclick="openProjectDialog(0)">
+                <img src="./assets/images/test_gif.gif" alt="Project 1" style="width: 100%; border-radius: 8px;">
+                <div class="project-title" style="margin-top: 8px; font-weight: 500;">Autonomous Rover</div>
+              </button>
             </li>
-
-            <li class="Projects-item">
-              <a href="#">
-                <img src="./assets/images/logo-2-color.png" alt="client logo">
-              </a>
+            <!-- Example Project 2 -->
+            <li class="projects-item" style="list-style: none; width: 200px; text-align: center;">
+              <button class="project-btn" style="background: none; border: none; padding: 0; cursor: pointer;" onclick="openProjectDialog(1)">
+                <img src="./assets/images/test_gif.gif" alt="Project 2" style="width: 100%; border-radius: 8px;">
+                <div class="project-title" style="margin-top: 8px; font-weight: 500;">Robotic Arm Simulation</div>
+              </button>
             </li>
-
-            <li class="Projects-item">
-              <a href="#">
-                <img src="./assets/images/logo-3-color.png" alt="client logo">
-              </a>
+            <!-- Example Project 3 -->
+            <li class="projects-item" style="list-style: none; width: 200px; text-align: center;">
+              <button class="project-btn" style="background: none; border: none; padding: 0; cursor: pointer;" onclick="openProjectDialog(2)">
+                <img src="./assets/images/test_gif.gif" alt="Project 3" style="width: 100%; border-radius: 8px;">
+                <div class="project-title" style="margin-top: 8px; font-weight: 500;">Multi-Robot Exploration</div>
+              </button>
             </li>
-
-            <li class="Projects-item">
-              <a href="#">
-                <img src="./assets/images/logo-4-color.png" alt="client logo">
-              </a>
+            <!-- Add more projects as needed -->
+                         <li class="projects-item" style="list-style: none; width: 200px; text-align: center;">
+              <button class="project-btn" style="background: none; border: none; padding: 0; cursor: pointer;" onclick="openProjectDialog(2)">
+                <img src="./assets/images/test_gif.gif" alt="Project 4" style="width: 100%; border-radius: 8px;">
+                <div class="project-title" style="margin-top: 8px; font-weight: 500;">Multi-Robot Exploration</div>
+              </button>
             </li>
-
-            <li class="Projects-item">
-              <a href="#">
-                <img src="./assets/images/logo-5-color.png" alt="client logo">
-              </a>
+            <li class="projects-item" style="list-style: none; width: 200px; text-align: center;">
+              <button class="project-btn" style="background: none; border: none; padding: 0; cursor: pointer;" onclick="openProjectDialog(2)">
+                <img src="./assets/images/test_gif.gif" alt="Project 5" style="width: 100%; border-radius: 8px;">
+                <div class="project-title" style="margin-top: 8px; font-weight: 500;">Multi-Robot Exploration</div>
+              </button>
             </li>
-
-            <li class="Projects-item">
-              <a href="#">
-                <img src="./assets/images/logo-6-color.png" alt="client logo">
-              </a>
+            <li class="projects-item" style="list-style: none; width: 200px; text-align: center;">
+              <button class="project-btn" style="background: none; border: none; padding: 0; cursor: pointer;" onclick="openProjectDialog(2)">
+                <img src="./assets/images/test_gif.gif" alt="Project 6" style="width: 100%; border-radius: 8px;">
+                <div class="project-title" style="margin-top: 8px; font-weight: 500;">Multi-Robot Exploration</div>
+              </button>
             </li>
 
           </ul>
+
+          <!-- Project Dialog -->
+          <div id="project-dialog" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.7); align-items:center; justify-content:center; z-index:1000;">
+            <div style="background:#222; color:#fff; border-radius:12px; max-width:400px; width:90%; padding:24px; position:relative;">
+              <button onclick="closeProjectDialog()" style="position:absolute; top:12px; right:16px; background:none; border:none; color:#fff; font-size:1.5rem; cursor:pointer;">&times;</button>
+              <div id="project-dialog-content"></div>
+            </div>
+          </div>
+
+          <script>
+            // Example project data
+            const projects = [
+              {
+                title: "Autonomous Rover",
+                description: "A field robot capable of autonomous navigation and mapping in outdoor environments. Features real-time obstacle avoidance and GPS-based path planning.",
+                media: "./assets/images/project1.gif"
+              },
+              {
+                title: "Robotic Arm Simulation",
+                description: "A high-fidelity simulation of a 6-DOF robotic arm for pick-and-place tasks. Includes kinematics, path planning, and collision detection.",
+                media: "./assets/images/project2.gif"
+              },
+              {
+                title: "Multi-Robot Exploration",
+                description: "A system of multiple robots collaborating to explore unknown environments. Implements distributed SLAM and inter-robot communication.",
+                media: "./assets/images/project3.gif"
+              }
+            ];
+
+            function openProjectDialog(index) {
+              const project = projects[index];
+              const content = `
+                <img src="${project.media}" alt="${project.title}" style="width:100%; border-radius:8px; margin-bottom:16px;">
+                <h4 style="margin:0 0 12px 0;">${project.title}</h4>
+                <p style="margin:0;">${project.description}</p>
+              `;
+              document.getElementById('project-dialog-content').innerHTML = content;
+              document.getElementById('project-dialog').style.display = 'flex';
+            }
+
+            function closeProjectDialog() {
+              document.getElementById('project-dialog').style.display = 'none';
+            }
+
+            // Optional: Close dialog on background click
+            document.getElementById('project-dialog').addEventListener('click', function(e) {
+              if (e.target === this) closeProjectDialog();
+            });
+          </script>
 
         </section>
 
