@@ -212,6 +212,98 @@
           </p>
         </section>
 
+        <!--
+          - Project Showcase Wheel
+        -->
+
+        <section class="project-showcase">
+          <h3 class="h3 showcase-title"></h3>
+          
+          <div class="showcase-container" style="overflow: hidden; width: 100%; height: 150px; position: relative; margin: 24px 0;">
+            <div class="showcase-wheel" style="display: flex; animation: scrollWheel 20s linear infinite; height: 100%;">
+              <!-- Project GIFs for the wheel -->
+              <div class="showcase-item" style="min-width: 200px; height: 120px; margin-right: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+                <img src="./assets/images/test_gif.gif" alt="Mars Cave Exploration" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <div class="showcase-item" style="min-width: 200px; height: 120px; margin-right: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+                <img src="./assets/images/test_gif.gif" alt="Spot Robotic Arm" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <div class="showcase-item" style="min-width: 200px; height: 120px; margin-right: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+                <img src="./assets/images/test_gif.gif" alt="Multi-Robot Survey" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <div class="showcase-item" style="min-width: 200px; height: 120px; margin-right: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+                <img src="./assets/images/test_gif.gif" alt="DoBot Vision System" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <div class="showcase-item" style="min-width: 200px; height: 120px; margin-right: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+                <img src="./assets/images/test_gif.gif" alt="Agricultural UAV" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <div class="showcase-item" style="min-width: 200px; height: 120px; margin-right: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+                <img src="./assets/images/test_gif.gif" alt="Electric Go-Kart" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <!-- Duplicate items for seamless loop -->
+              <div class="showcase-item" style="min-width: 200px; height: 120px; margin-right: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+                <img src="./assets/images/test_gif.gif" alt="Mars Cave Exploration" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <div class="showcase-item" style="min-width: 200px; height: 120px; margin-right: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+                <img src="./assets/images/test_gif.gif" alt="Spot Robotic Arm" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <div class="showcase-item" style="min-width: 200px; height: 120px; margin-right: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+                <img src="./assets/images/test_gif.gif" alt="Multi-Robot Survey" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <div class="showcase-item" style="min-width: 200px; height: 120px; margin-right: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+                <img src="./assets/images/test_gif.gif" alt="DoBot Vision System" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <div class="showcase-item" style="min-width: 200px; height: 120px; margin-right: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+                <img src="./assets/images/test_gif.gif" alt="Agricultural UAV" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <div class="showcase-item" style="min-width: 200px; height: 120px; margin-right: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+                <img src="./assets/images/test_gif.gif" alt="Electric Go-Kart" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+            </div>
+          </div>
+
+          <style>
+            @keyframes scrollWheel {
+              0% {
+                transform: translateX(0);
+              }
+              100% {
+                transform: translateX(-50%);
+              }
+            }
+
+            .showcase-wheel:hover {
+              animation-play-state: paused;
+            }
+
+            .showcase-container::before,
+            .showcase-container::after {
+              content: '';
+              position: absolute;
+              top: 0;
+              width: 50px;
+              height: 100%;
+              z-index: 2;
+              pointer-events: none;
+            }
+
+            .showcase-container::before {
+              left: 0;
+              background: linear-gradient(to right, #1e1e1f, transparent);
+            }
+
+            .showcase-container::after {
+              right: 0;
+              background: linear-gradient(to left, #1e1e1f, transparent);
+            }
+
+            .showcase-title {
+              color: #fff;
+              margin-bottom: 1rem;
+            }
+          </style>
+        </section>
+
 
         <!--
           - service
@@ -299,45 +391,47 @@
 
           <h3 class="h3 projects-title">Projects</h3>
 
-          <ul class="projects-list" style="display: flex; flex-wrap: wrap; gap: 24px; padding: 0;">
-            <!-- Example Project 1 -->
-            <li class="projects-item" style="list-style: none; width: 200px; text-align: center;">
+          <ul class="projects-list" style="display: flex; flex-wrap: wrap; gap: 40px; padding: 0; justify-content: center;">
+            <!-- Project 1: Space Robotics -->
+            <li class="projects-item" style="list-style: none; width: 300px; text-align: center; transform: translateY(0px);">
               <button class="project-btn" style="background: none; border: none; padding: 0; cursor: pointer;" onclick="openProjectDialog(0)">
-                <img src="./assets/images/test_gif.gif" alt="Project 1" style="width: 100%; border-radius: 8px;">
-                <div class="project-title" style="margin-top: 8px; font-weight: 500;">Autonomous Rover</div>
+                <img src="./assets/images/test_gif.gif" alt="Space Robotics" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);">
+                <div class="project-title" style="margin-top: 12px; font-weight: 500; font-size: 1.1em;">Mars Cave Exploration</div>
               </button>
             </li>
-            <!-- Example Project 2 -->
-            <li class="projects-item" style="list-style: none; width: 200px; text-align: center;">
+            <!-- Project 2: Spot Robotic Arm -->
+            <li class="projects-item" style="list-style: none; width: 300px; text-align: center; transform: translateY(80px);">
               <button class="project-btn" style="background: none; border: none; padding: 0; cursor: pointer;" onclick="openProjectDialog(1)">
-                <img src="./assets/images/test_gif.gif" alt="Project 2" style="width: 100%; border-radius: 8px;">
-                <div class="project-title" style="margin-top: 8px; font-weight: 500;">Robotic Arm Simulation</div>
+                <img src="./assets/images/test_gif.gif" alt="Spot Robotic Arm" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);">
+                <div class="project-title" style="margin-top: 12px; font-weight: 500; font-size: 1.1em;">Spot Robotic Arm</div>
               </button>
             </li>
-            <!-- Example Project 3 -->
-            <li class="projects-item" style="list-style: none; width: 200px; text-align: center;">
+            <!-- Project 3: Multi Robot Survey -->
+            <li class="projects-item" style="list-style: none; width: 300px; text-align: center; transform: translateY(60px);">
               <button class="project-btn" style="background: none; border: none; padding: 0; cursor: pointer;" onclick="openProjectDialog(2)">
-                <img src="./assets/images/test_gif.gif" alt="Project 3" style="width: 100%; border-radius: 8px;">
-                <div class="project-title" style="margin-top: 8px; font-weight: 500;">Multi-Robot Exploration</div>
+                <img src="./assets/images/test_gif.gif" alt="Multi Robot Survey" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);">
+                <div class="project-title" style="margin-top: 12px; font-weight: 500; font-size: 1.1em;">Multi-Robot Survey</div>
               </button>
             </li>
-            <!-- Add more projects as needed -->
-                         <li class="projects-item" style="list-style: none; width: 200px; text-align: center;">
-              <button class="project-btn" style="background: none; border: none; padding: 0; cursor: pointer;" onclick="openProjectDialog(2)">
-                <img src="./assets/images/test_gif.gif" alt="Project 4" style="width: 100%; border-radius: 8px;">
-                <div class="project-title" style="margin-top: 8px; font-weight: 500;">Multi-Robot Exploration</div>
+            <!-- Project 4: DoBot Object Detection -->
+            <li class="projects-item" style="list-style: none; width: 300px; text-align: center; transform: translateY(90px);">
+              <button class="project-btn" style="background: none; border: none; padding: 0; cursor: pointer;" onclick="openProjectDialog(3)">
+                <img src="./assets/images/test_gif.gif" alt="DoBot Object Detection" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);">
+                <div class="project-title" style="margin-top: 12px; font-weight: 500; font-size: 1.1em;">DoBot Vision System</div>
               </button>
             </li>
-            <li class="projects-item" style="list-style: none; width: 200px; text-align: center;">
-              <button class="project-btn" style="background: none; border: none; padding: 0; cursor: pointer;" onclick="openProjectDialog(2)">
-                <img src="./assets/images/test_gif.gif" alt="Project 5" style="width: 100%; border-radius: 8px;">
-                <div class="project-title" style="margin-top: 8px; font-weight: 500;">Multi-Robot Exploration</div>
+            <!-- Project 5: Agricultural UAV -->
+            <li class="projects-item" style="list-style: none; width: 300px; text-align: center; transform: translateY(120px);">
+              <button class="project-btn" style="background: none; border: none; padding: 0; cursor: pointer;" onclick="openProjectDialog(4)">
+                <img src="./assets/images/test_gif.gif" alt="Agricultural UAV" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);">
+                <div class="project-title" style="margin-top: 12px; font-weight: 500; font-size: 1.1em;">Agricultural UAV</div>
               </button>
             </li>
-            <li class="projects-item" style="list-style: none; width: 200px; text-align: center;">
-              <button class="project-btn" style="background: none; border: none; padding: 0; cursor: pointer;" onclick="openProjectDialog(2)">
-                <img src="./assets/images/test_gif.gif" alt="Project 6" style="width: 100%; border-radius: 8px;">
-                <div class="project-title" style="margin-top: 8px; font-weight: 500;">Multi-Robot Exploration</div>
+            <!-- Project 6: Electric Go-Kart -->
+            <li class="projects-item" style="list-style: none; width: 300px; text-align: center; transform: translateY(150px); margin-bottom: 150px;">
+              <button class="project-btn" style="background: none; border: none; padding: 0; cursor: pointer;" onclick="openProjectDialog(5)">
+                <img src="./assets/images/test_gif.gif" alt="Electric Go-Kart" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);">
+                <div class="project-title" style="margin-top: 12px; font-weight: 500; font-size: 1.1em;">Electric Go-Kart</div>
               </button>
             </li>
 
@@ -352,31 +446,59 @@
           </div>
 
           <script>
-            // Example project data
+            // Real project data
             const projects = [
               {
-                title: "Autonomous Rover",
-                description: "A field robot capable of autonomous navigation and mapping in outdoor environments. Features real-time obstacle avoidance and GPS-based path planning.",
-                media: "./assets/images/project1.gif"
+                title: "Space Robotics - Mars Cave Exploration",
+                description: "Autonomous frontier-based exploration in a Mars cave simulation. Implemented YOLOv11 for artifact detection, DBSCAN for frontier detection, and ROS MoveAction for navigation. Highest graded project in cohort, nominated for UTS TechFest showcase.",
+                media: "./assets/images/test_gif.gif",
+                github: "https://github.com/AG-013/space_robotic_13",
+                skills: "ROS, Computer Vision, YOLOv11, Path Planning, Autonomous Exploration"
               },
               {
-                title: "Robotic Arm Simulation",
-                description: "A high-fidelity simulation of a 6-DOF robotic arm for pick-and-place tasks. Includes kinematics, path planning, and collision detection.",
-                media: "./assets/images/project2.gif"
+                title: "Capstone - Spot Robotic Arm",
+                description: "3-DOF robotic arm for Boston Dynamics' Spot, designed for assistive guidance with Guide Dogs Australia. Features capstan-tendon actuation, SolidWorks design with FEA, MATLAB workspace optimization, and ROS2 integration.",
+                media: "./assets/images/test_gif.gif",
+                github: "https://github.com/AG-013/spot_arm",
+                skills: "ROS2, SolidWorks, FEA, Human-Robot Interaction, Mechanical Design"
               },
               {
-                title: "Multi-Robot Exploration",
-                description: "A system of multiple robots collaborating to explore unknown environments. Implements distributed SLAM and inter-robot communication.",
-                media: "./assets/images/project3.gif"
+                title: "Multi-Robot Survey Mapping",
+                description: "Gazebo simulation project with synchronized quadcopter and Ackermann vehicles. Implemented PID controllers, multithreading, sonar gradient mapping, and laser-based object avoidance using C++ and ROS.",
+                media: "./assets/images/test_gif.gif",
+                skills: "C++, ROS, Multithreading, PID Control, Mobile Robotics, Gazebo"
+              },
+              {
+                title: "DoBot Vision & Grasping System",
+                description: "Vision-based robotic control using DoBot arm and Intel RealSense D435i. Achieved 90%+ object detection accuracy and 70-80% grasping success with ArUco markers, OpenCV, and dynamic calibration techniques.",
+                media: "./assets/images/test_gif.gif",
+                skills: "ROS, OpenCV, Computer Vision, Visual Servoing, Object Detection"
+              },
+              {
+                title: "Agricultural UAV Mapping",
+                description: "Low-cost delta-wing UAV for farmland surveillance with dual-mode operation (manual/autonomous). Custom airframe with ArduPilot, GNSS navigation, and image stitching for complete field mapping.",
+                media: "./assets/images/test_gif.gif",
+                skills: "ArduPilot, Embedded Systems, Sensor Fusion, UAV Design, Agricultural Tech"
+              },
+              {
+                title: "Electric Go-Kart Championship",
+                description: "Designed and manufactured electric go-kart for National Electric Kart Championship (NEKC 3.0). Team achieved 1st place victory with custom electric powertrain and advanced vehicle dynamics.",
+                media: "./assets/images/test_gif.gif",
+                skills: "Mechatronics, Battery Electric Vehicle, Auto Racing, Manufacturing"
               }
             ];
 
             function openProjectDialog(index) {
               const project = projects[index];
+              const githubLink = project.github ? `<p style="margin: 12px 0;"><a href="${project.github}" target="_blank" style="color: #FFB400; text-decoration: none;">🔗 View on GitHub</a></p>` : '';
+              const skillsSection = project.skills ? `<p style="margin: 12px 0 0 0; font-size: 0.9em; color: #ccc;"><strong>Skills:</strong> ${project.skills}</p>` : '';
+              
               const content = `
                 <img src="${project.media}" alt="${project.title}" style="width:100%; border-radius:8px; margin-bottom:16px;">
                 <h4 style="margin:0 0 12px 0;">${project.title}</h4>
                 <p style="margin:0;">${project.description}</p>
+                ${githubLink}
+                ${skillsSection}
               `;
               document.getElementById('project-dialog-content').innerHTML = content;
               document.getElementById('project-dialog').style.display = 'flex';
