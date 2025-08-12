@@ -465,8 +465,11 @@
               {
                 title: "Multi-Robot Survey Mapping",
                 description: "Gazebo simulation project with synchronized quadcopter and Ackermann vehicles. Implemented PID controllers, multithreading, sonar gradient mapping, and laser-based object avoidance using C++ and ROS.",
-                media: "./assets/images/test_gif.gif",
-                skills: "C++, ROS, Multithreading, PID Control, Mobile Robotics, Gazebo"
+                skills: "C++, ROS, Multithreading, PID Control, Mobile Robotics, Gazebo",
+                videos: [
+                  "https://www.youtube.com/embed/ZrrJ0M4J8J0",
+                  "https://www.youtube.com/embed/059908a6vN4"
+                ]
               },
               {
                 title: "DoBot Vision & Grasping System",
@@ -492,14 +495,30 @@
               const project = projects[index];
               const githubLink = project.github ? `<p style="margin: 12px 0;"><a href="${project.github}" target="_blank" style="color: #FFB400; text-decoration: none;">🔗 View on GitHub</a></p>` : '';
               const skillsSection = project.skills ? `<p style="margin: 12px 0 0 0; font-size: 0.9em; color: #ccc;"><strong>Skills:</strong> ${project.skills}</p>` : '';
-              
+
+              let mediaContent = "";
+              // Special case for Multi-Robot Survey Mapping (index 2)
+              if (index === 2 && project.videos) {
+                // Add autoplay=1 to each video URL
+                const video1 = project.videos[0].includes('?') ? project.videos[0] + '&autoplay=1' : project.videos[0] + '?autoplay=1';
+                const video2 = project.videos[1].includes('?') ? project.videos[1] + '&autoplay=1' : project.videos[1] + '?autoplay=1';
+                mediaContent = `
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <iframe width="100%" height="200" src="${video1}" title="Multi-Robot Survey Video 1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border-radius:8px;"></iframe>
+      <iframe width="100%" height="200" src="${video2}" title="Multi-Robot Survey Video 2" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border-radius:8px;"></iframe>
+    </div>
+  `;
+              } else {
+                mediaContent = `<img src="${project.media}" alt="${project.title}" style="width:100%; border-radius:8px; margin-bottom:16px;">`;
+              }
+
               const content = `
-                <img src="${project.media}" alt="${project.title}" style="width:100%; border-radius:8px; margin-bottom:16px;">
-                <h4 style="margin:0 0 12px 0;">${project.title}</h4>
-                <p style="margin:0;">${project.description}</p>
-                ${githubLink}
-                ${skillsSection}
-              `;
+    ${mediaContent}
+    <h4 style="margin:0 0 12px 0;">${project.title}</h4>
+    <p style="margin:0;">${project.description}</p>
+    ${githubLink}
+    ${skillsSection}
+  `;
               document.getElementById('project-dialog-content').innerHTML = content;
               document.getElementById('project-dialog').style.display = 'flex';
             }
