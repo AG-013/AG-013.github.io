@@ -510,19 +510,47 @@
               const skillsSection = project.skills ? `<p style="margin: 12px 0 0 0; font-size: 0.9em; color: #ccc;"><strong>Skills:</strong> ${project.skills}</p>` : '';
 
               let mediaContent = "";
-              // Special case for Multi-Robot Survey Mapping (index 2)
-              if (index === 2 && project.videos) {
-                // Add autoplay=1 to each video URL
+              // Space Robotics video
+              if (index === 0 && project.videos) {
+                const videoUrl = project.videos[0].includes('autoplay=1') ? project.videos[0] : project.videos[0] + (project.videos[0].includes('?') ? '&autoplay=1' : '?autoplay=1');
+                mediaContent = `
+      <iframe width="100%" height="220" src="${videoUrl}" title="Space Robotics Video" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border-radius:8px;"></iframe>
+    `;
+              }
+              // Multi-Robot Survey Mapping videos
+              else if (index === 2 && project.videos) {
                 const video1 = project.videos[0].includes('?') ? project.videos[0] + '&autoplay=1' : project.videos[0] + '?autoplay=1';
                 const video2 = project.videos[1].includes('?') ? project.videos[1] + '&autoplay=1' : project.videos[1] + '?autoplay=1';
                 mediaContent = `
-    <div style="display: flex; flex-direction: column; gap: 16px;">
-      <iframe width="100%" height="200" src="${video1}" title="Multi-Robot Survey Video 1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border-radius:8px;"></iframe>
-      <iframe width="100%" height="200" src="${video2}" title="Multi-Robot Survey Video 2" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border-radius:8px;"></iframe>
-    </div>
-  `;
-              } else {
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <iframe width="100%" height="200" src="${video1}" title="Multi-Robot Survey Video 1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border-radius:8px;"></iframe>
+        <iframe width="100%" height="200" src="${video2}" title="Multi-Robot Survey Video 2" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border-radius:8px;"></iframe>
+      </div>
+    `;
+              }
+              // Agricultural UAV special context
+              else if (index === 4) {
+                mediaContent = `
+      <video src="${project.media}" style="width:100%; border-radius:8px; margin-bottom:16px;" autoplay muted loop playsinline></video>
+    `;
+              }
+              // Local mp4 video fallback
+              else if (project.media && project.media.endsWith('.mp4')) {
+                mediaContent = `<video src="${project.media}" style="width:100%; border-radius:8px; margin-bottom:16px;" autoplay muted loop playsinline></video>`;
+              }
+              // Image fallback
+              else if (project.media) {
                 mediaContent = `<img src="${project.media}" alt="${project.title}" style="width:100%; border-radius:8px; margin-bottom:16px;">`;
+              }
+
+              // Add images array for UAV project
+              let imagesContent = "";
+              if (index === 4 && project.images && project.images.length > 0) {
+                imagesContent = `
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px;">
+        ${project.images.map(img => `<img src="${img}" style="width: 48%; border-radius:8px; margin-bottom:8px;">`).join('')}
+      </div>
+    `;
               }
 
               const content = `
@@ -531,6 +559,7 @@
     <p style="margin:0;">${project.description}</p>
     ${githubLink}
     ${skillsSection}
+    ${imagesContent}
   `;
               document.getElementById('project-dialog-content').innerHTML = content;
               document.getElementById('project-dialog').style.display = 'flex';
