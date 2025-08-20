@@ -543,12 +543,17 @@
                 mediaContent = `<img src="${project.media}" alt="${project.title}" style="width:100%; border-radius:8px; margin-bottom:16px;">`;
               }
 
-              // Add images array for UAV project
+              // Add images array for UAV project with scroll and 3 images per row
               let imagesContent = "";
               if (index === 4 && project.images && project.images.length > 0) {
                 imagesContent = `
-      <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px;">
-        ${project.images.map(img => `<img src="${img}" style="width: 48%; border-radius:8px; margin-bottom:8px;">`).join('')}
+      <div style="max-height:220px; overflow-y:auto; margin-top:16px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          ${project.images.map((img, i) => `
+            <img src="${img}" style="width: 31%; min-width: 90px; max-width: 110px; border-radius:8px; margin-bottom:8px;">
+            ${(i % 3 === 2) ? '<div style="flex-basis: 100%; height: 0;"></div>' : ''}
+          `).join('')}
+        </div>
       </div>
     `;
               }
@@ -561,7 +566,8 @@
     ${skillsSection}
     ${imagesContent}
   `;
-              document.getElementById('project-dialog-content').innerHTML = content;
+              // Add scroll to dialog content
+              document.getElementById('project-dialog-content').innerHTML = `<div style="max-height:70vh; overflow-y:auto;">${content}</div>`;
               document.getElementById('project-dialog').style.display = 'flex';
             }
 
