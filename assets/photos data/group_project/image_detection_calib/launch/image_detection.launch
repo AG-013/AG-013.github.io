@@ -1,9 +1,0 @@
-<launch>
-  <!-- Parameters to control node execution -->
-  <arg name="run_image_detection" default="false" />
-  <arg name="run_calibration" default="false" />
-
-  <!-- Launch nodes conditionally based on parameters -->
-  <node pkg="image_detection_calib" type="image_detect.py" name="image_detection_node" output="screen" if="$(arg run_image_detection)" />
-  <node pkg="image_detection_calib" type="extrinsic_calibration_node.py" name="extrinsic_calibration_node" output="screen" if="$(arg run_calibration)" />
-</launch>
